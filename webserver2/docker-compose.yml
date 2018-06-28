@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  webserver2:
+    image: php:7.2-apache
+    network_mode: bridge
+    expose:
+      - 80
+    environment:
+      VIRTUAL_HOST: web2.localhost
+    volumes:
+      - $PWD/html:/var/www/html

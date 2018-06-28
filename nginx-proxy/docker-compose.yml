@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    network_mode: bridge
+    ports:
+      - "80:80"
+      
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
