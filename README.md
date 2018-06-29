@@ -5,7 +5,7 @@ Let's say that you want to run multiple different web servers in docker containe
 
 ```
 services:
-  web server1:
+  webserver1:
     image: php:7.2-apache
     ports:
       - "80:80"
@@ -38,12 +38,12 @@ The jwilder/nginx-proxy is nice because it actually connects to docker itself an
 
 So, now we can create multiple web server containers, each with a VIRTUAL_HOST environment variable the defines which domain name should resolve to the container, and we expose port 80. We don't listen on port 80 because nginx is already listening on 80. But by exposing port 80, the nginx-proxy can direct requests to it.
 
-`web server1/docker-compose.yml`
+`webserver1/docker-compose.yml`
 ```
 version: '3'
 
 services:
-  web server1:
+  webserver1:
     image: php:7.2-apache
     expose:
       - 80
@@ -53,12 +53,12 @@ services:
       - $PWD/html:/var/www/html
 ```
 
-`web server2/docker-compose.yml`
+`webserver2/docker-compose.yml`
 ```
 version: '3'
 
 services:
-  web server2:
+  webserver2:
     image: php:7.2-apache
     expose:
       - 80
@@ -75,7 +75,7 @@ To try out the example locally, edit your etc/hosts file and add web1.localhost 
 
 Start the nginx-proxy with `docker-compose up`
 
-In separate consoles start web server1 and web server2 using `docker-compose up`
+In separate consoles start webserver1 and webserver2 using `docker-compose up`
 
 You will see the nginx-proxy detect the new containers as they start and begin to proxy requests to them.
 
