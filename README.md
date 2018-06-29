@@ -79,7 +79,7 @@ In separate consoles start webserver1 and webserver2 using `docker-compose up`
 
 You will see the nginx-proxy detect the new containers as they start and begin to proxy requests to them.
 
-Open up your browser and go to `web1.loclahost` and `web2.localhost` to see how the request is served by the appropriate web server through the proxy.
+Open up your browser and go to `web1.localhost` and `web2.localhost` to see how the request is served by the appropriate web server through the proxy.
 
 ![animated GIF of Example running](https://raw.githubusercontent.com/jmaxwilson/docker-nginx-proxy-example/master/docker-nginx-proxy.gif "example running nginx reverse proxy with two web server containers")
 
